@@ -20,7 +20,6 @@
           <i class="flaticon-backpacking" title="Backpacking"></i>
           <i class="flaticon-hiking" title="Hiking"></i>
           <i class="flaticon-climbing" title="Climbing"></i>
-          <i class="flaticon-pack" title="Pack"></i>
           -->
           <hr>
         </div>
@@ -28,9 +27,17 @@
 
       <main ng-app="packingApp">
         <div ng-controller="PackingController" class="row text-center">
-          <div ng-repeat="item in items" class="col-md-6">
-            <h4>{{ item.name }}</h4>
-            <p ng-click="setToPacked($index)">Packed: {{ item.packed }}</p>
+          <div ng-repeat="item in items" class="col-md-8 col-md-offset-2">
+            <div class="item-container">
+            <h4 class="item-name">{{ item.name }}</h4>
+            <p class="item-description">{{ item.description }}</p>
+            <div ng-click="togglePacked($index)">
+              <i
+                title="{{{true: 'Unpack item', false: 'Pack item'}[item.packed]}}"
+                ng-class="item.packed ? 'item-packed-true' : 'item-packed-false'"
+                class="flaticon-pack"
+              ></i>
+            </div>
           </div>
         </div>
       </main>
