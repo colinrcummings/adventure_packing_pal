@@ -4,7 +4,7 @@ app.directive('togglePacked', function() {
     scope: {
     },
     templateUrl: 'js/directives/togglePacked.html',
-    link: function(scope, element, attrs) {
+    link: function(scope) {
       scope.packed = false,
       scope.titleText="Pack item",
       scope.togglePacked = function() {
