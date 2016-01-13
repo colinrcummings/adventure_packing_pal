@@ -6,6 +6,12 @@ hr {
   border-top: 1px solid #c1c1c1;
 }
 
+/* flaticon styling */
+.flaticon-pack {
+  font-size: 17px;
+  cursor: pointer;
+}
+
 /* item styling */
 .item-container {
   margin-bottom: 5px;
@@ -21,10 +27,6 @@ hr {
   margin-bottom: 0px;
   color: #919191;
   font-style: italic;
-}
-.flaticon-pack {
-  font-size: 17px;
-  cursor: pointer;
 }
 .item-packed-true {
   color: #5cb85c;

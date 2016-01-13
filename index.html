@@ -29,15 +29,8 @@
         <div ng-controller="PackingController" class="row text-center">
           <div ng-repeat="item in items" class="col-md-8 col-md-offset-2">
             <div class="item-container">
-            <h4 class="item-name">{{ item.name }}</h4>
-            <p class="item-description">{{ item.description }}</p>
-            <div ng-click="togglePacked($index)">
-              <i
-                title="{{{true: 'Unpack item', false: 'Pack item'}[item.packed]}}"
-                ng-class="item.packed ? 'item-packed-true' : 'item-packed-false'"
-                class="flaticon-pack"
-              ></i>
-            </div>
+              <item-info info="item"></item-info>
+              <toggle-packed></toggle-packed>
           </div>
         </div>
       </main>
@@ -48,5 +41,7 @@
     <script src="js/lib/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controllers/PackingController.js"></script>
+    <script src="js/directives/itemInfo.js"></script>
+    <script src="js/directives/togglePacked.js"></script>
   </body>
 </html>
