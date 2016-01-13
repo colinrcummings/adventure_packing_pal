@@ -9,40 +9,16 @@
     <link rel="stylesheet" href="css/lib/flaticon.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
-    <div class="container">
-
-      <header class="row text-center">
-        <div class="col-md-12">
-          <h1>Packing List</h1>
-          <!--
-          <i class="flaticon-mountaineering" title="Mountaineering"></i>
-          <i class="flaticon-backpacking" title="Backpacking"></i>
-          <i class="flaticon-hiking" title="Hiking"></i>
-          <i class="flaticon-climbing" title="Climbing"></i>
-          -->
-          <hr>
-        </div>
-      </header>
-
-      <main ng-app="packingApp">
-        <div ng-controller="PackingController" class="row text-center">
-          <div ng-repeat="item in items" class="col-md-8 col-md-offset-2">
-            <div class="item-container">
-              <item-info info="item"></item-info>
-              <toggle-packed></toggle-packed>
-          </div>
-        </div>
-      </main>
-
-    </div>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+  <div ng-view></div>
+  <body ng-app="packingApp">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
     <script src="js/lib/jquery-2.1.1.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controllers/PackingController.js"></script>
     <script src="js/services/items.js"></script>
-    <script src="js/directives/itemInfo.js"></script>
+    <script src="js/directives/itemContainer.js"></script>
     <script src="js/directives/togglePacked.js"></script>
   </body>
 </html>

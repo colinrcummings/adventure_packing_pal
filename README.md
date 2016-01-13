@@ -6,4 +6,4 @@ An outdoorsy spin on the typical todo app, built with AngularJS v1.3.8
 - Enable item adding, editing, deleting (in window state)
 - Add different list types (mountaineering, backpacking, hiking, climbing) using flaticons to toggle
 - Add required/optional item status
-- Integrate seasonality (TODO: add flaticons)
+- Integrate seasonality using flaticons to toggle

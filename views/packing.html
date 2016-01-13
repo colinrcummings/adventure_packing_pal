@@ -1,0 +1,22 @@
+<div class="container">
+
+  <header class="row text-center">
+    <div class="col-md-12">
+      <h1>Packing List</h1>
+      <!--
+      <i class="flaticon-mountaineering" title="Mountaineering"></i>
+      <i class="flaticon-backpacking" title="Backpacking"></i>
+      <i class="flaticon-hiking" title="Hiking"></i>
+      <i class="flaticon-climbing" title="Climbing"></i>
+      -->
+      <hr>
+    </div>
+  </header>
+
+  <main class="row text-center">
+    <div ng-repeat="item in items" class="col-md-8 col-md-offset-2">
+      <item-container info="item"></item-container>
+    </div>
+  </main>
+
+</div>
