@@ -2,11 +2,15 @@ var app = angular.module('packingApp', ['ngRoute']);
 
 app.config(function ($routeProvider) {
   $routeProvider
-    .when('/', {
+    .when('/list', {
       controller: 'PackingController',
-      templateUrl: 'views/packing.html'
+      templateUrl: 'views/list.html'
+    })
+    .when('/item', {
+      controller: 'PackingController',
+      templateUrl: 'views/item.html'
     })
     .otherwise({
-      redirectTo: '/'
+      redirectTo: '/list'
     });
 });

@@ -1,0 +1,39 @@
+<!-- ListController no longer exists! -->
+<div ng-controller="ListController as list" class="btn-group" role="group">
+  <button
+    type="button"
+    ng-click="list.setList(1)"
+    ng-class="{ active:list.isActive(1) }"
+    class="btn btn-default"
+    title="Climbing"
+  >
+    <i class="flaticon-climbing"></i>
+  </button>
+  <button
+    type="button"
+    ng-click="list.setList(2)"
+    ng-class="{ active:list.isActive(2) }"
+    class="btn btn-default"
+    title="Hiking"
+  >
+    <i class="flaticon-hiking"></i>
+  </button>
+  <button
+    type="button"
+    ng-click="list.setList(3)"
+    ng-class="{ active:list.isActive(3) }"
+    class="btn btn-default"
+    title="Backpacking"
+  >
+    <i class="flaticon-backpacking"></i>
+  </button>
+  <button
+    type="button"
+    ng-click="list.setList(4)"
+    ng-class="{ active:list.isActive(4) }"
+    class="btn btn-default"
+    title="Mountaineering"
+  >
+    <i class="flaticon-mountaineering"></i>
+  </button>
+</div>

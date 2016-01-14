@@ -1,22 +1,17 @@
 <div class="container">
-
   <header class="row text-center">
     <div class="col-md-12">
       <h1>Packing List</h1>
+      <button ng-click="changeView('/item')" class="btn btn-default">Add Item</button>
       <!--
-      <i class="flaticon-mountaineering" title="Mountaineering"></i>
-      <i class="flaticon-backpacking" title="Backpacking"></i>
-      <i class="flaticon-hiking" title="Hiking"></i>
-      <i class="flaticon-climbing" title="Climbing"></i>
+      <list-button-group></list-button-group>
       -->
       <hr>
     </div>
   </header>
-
   <main class="row text-center">
     <div ng-repeat="item in items" class="col-md-8 col-md-offset-2">
       <item-container info="item"></item-container>
     </div>
   </main>
-
 </div>

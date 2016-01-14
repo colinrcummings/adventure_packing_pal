@@ -6,13 +6,13 @@ app.directive('togglePacked', function() {
     templateUrl: 'js/directives/togglePacked.html',
     link: function(scope) {
       scope.packed = false,
-      scope.titleText="Pack item",
+      scope.titleText= 'Pack item',
       scope.togglePacked = function() {
         if(scope.packed) {
-          scope.titleText = "Pack item";
+          scope.titleText = 'Pack item';
           scope.packed = false;
         } else {
-          scope.titleText = "Unpack item";
+          scope.titleText = 'Unpack item';
           scope.packed = true;
         }
       }
