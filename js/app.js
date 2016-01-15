@@ -11,6 +11,10 @@ app.config(function ($routeProvider) {
       controller: 'PackingController',
       templateUrl: 'views/add_item.html'
     })
+    .when('/edit_item', {
+      controller: 'PackingController',
+      templateUrl: 'views/edit_item.html'
+    })
     .otherwise({
       redirectTo: '/packing_list'
     });

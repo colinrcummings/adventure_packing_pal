@@ -2,7 +2,7 @@
   <header class="row text-center">
     <div class="col-md-12">
       <h1>Packing List</h1>
-      <button ng-click="changeView('/add_item')" class="btn btn-default">Add Item</button>
+      <button ng-click="addItem()" class="btn btn-default">Add Item</button>
       <!--
       <list-button-group></list-button-group>
       -->
@@ -21,7 +21,12 @@
           class="flaticon-pack"
         ></i>
         <i
-          ng-click="deleteItem($index)"
+          ng-click="editItem($index)"
+          title="Edit item"
+          class="fa fa-pencil-square-o"
+        ></i>
+        <i
+          ng-click="submitDeleteItem($index)"
           title="Delete item"
           class="fa fa-times"
         ></i>

@@ -4,6 +4,7 @@ An outdoorsy spin on the typical todo app, built with AngularJS v1.3.8
 http://colinrcummings.github.io/adventure_packing_pal/
 
 ## To do
+- Fix mobi input size / icon focusing
 - Confirm before item delete
 - Enable item editing
 - Group items by Unpacked and Packed inside collapsable containers with count
