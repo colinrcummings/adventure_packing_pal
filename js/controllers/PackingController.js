@@ -9,6 +9,7 @@ app.controller('PackingController', [
         d.name = d.name;
         d.description = d.description;
         d.packed = d.packed || false;
+        d.edit = false;
       });
       $scope.items = data.items;
     });
@@ -25,40 +26,45 @@ app.controller('PackingController', [
 
     // add item
     $scope.addItem = function() {
-      $scope.changeView('/add_item');
-    };
-    $scope.submitAddItem = function() {
       $scope.items.push({
-        'name': $scope.formItemName,
-        'description': $scope.formItemDescription,
-        'packed': false
+        'name': $scope.newItemName,
+        'description': $scope.newItemDescription,
+        'packed': false,
+        'edit': false
       });
-      $scope.changeView('/list');
+      $scope.goToPackingListView();
     };
 
     // edit item
-    $scope.editItem = function(index) {
+    $scope.toggleEdit = function(index) {
       var item = $scope.items[index];
-      // TODO
-      $location.path('/edit_item');
-    };
-    $scope.submitEditItem = function() {
-      // TODO
-      $scope.changeView('/list');
+      if(item.edit === true) {
+        item.edit = false;
+      } else {
+        item.edit = true;
+      }
     };
 
     // delete item
-    $scope.deleteItem = function() {
-      // TODO
-    };
-    $scope.submitDeleteItem = function(index) {
-      $scope.items.splice(index, 1);
+    $scope.deleteItem = function(index) {
+      var item = $scope.items[index];
+      $('#js-item-name').text(item.name);
+      $('#js-item-delete').unbind('click');
+      $('#js-item-delete').on('click',function(){
+        $scope.items.splice(index, 1);
+        $scope.$apply();
+        $('#js-item-delete-modal').modal('hide');
+      });
+      $('#js-item-delete-modal').modal('show');
     };
 
-    // view change handler
-    $scope.changeView = function(view){
-      $location.path(view);
-    }
+    // view change handlers
+    $scope.goToPackingListView = function(){
+      $location.path('/packing_list');
+    };
+    $scope.goToAddItemView = function() {
+       $location.path('/add_item');
+    };
 
     /*
     // TODO

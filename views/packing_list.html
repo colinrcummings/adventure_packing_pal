@@ -2,7 +2,7 @@
   <header class="row text-center">
     <div class="col-md-12">
       <h1>Packing List</h1>
-      <button ng-click="addItem()" class="btn btn-default">Add Item</button>
+      <button ng-click="goToAddItemView()" class="btn btn-default">Add Item</button>
       <!--
       <list-button-group></list-button-group>
       -->
@@ -10,27 +10,86 @@
     </div>
   </header>
   <main class="row text-center">
-    <div ng-repeat="item in items" class="col-md-8 col-md-offset-2">
+    <div ng-repeat="item in items track by $index" class="col-md-8 col-md-offset-2">
       <div class="item-container">
-        <h4 class="item-name">{{ item.name }}</h4>
-        <p class="item-description">{{ item.description }}</p>
-        <i
-          ng-click="togglePacked($index)"
-          title="{{{true: 'Unpack item', false: 'Pack item'}[item.packed]}}"
-          ng-class="item.packed ? 'item-packed-true' : 'item-packed-false'"
-          class="flaticon-pack"
-        ></i>
-        <i
-          ng-click="editItem($index)"
-          title="Edit item"
-          class="fa fa-pencil-square-o"
-        ></i>
-        <i
-          ng-click="submitDeleteItem($index)"
-          title="Delete item"
-          class="fa fa-times"
-        ></i>
+        <div ng-hide="item.edit">
+          <h4 class="item-name">{{ item.name }}</h4>
+          <p class="item-description">{{ item.description }}</p>
+          <i
+            ng-click="togglePacked($index)"
+            title="{{{true: 'Unpack item', false: 'Pack item'}[item.packed]}}"
+            ng-class="item.packed ? 'item-packed-true' : 'item-packed-false'"
+            class="flaticon-pack"
+          ></i>
+          <i
+            ng-click="toggleEdit($index)"
+            title="Edit item"
+            class="fa fa-pencil-square-o item-edit-icon"
+          ></i>
+          <i
+            ng-click="deleteItem($index)"
+            title="Delete item"
+            class="fa fa-times item-delete-icon"
+          ></i>
+        </div>
+        <form
+          name="editItemForm"
+          ng-show="item.edit"
+          ng-submit="editItem($index)"
+          class="item-edit-form"
+        >
+          <div class="form-group">
+            <label for="item-name">Edit Name:</label>
+            <input
+              type="text"
+              ng-model="item.name"
+              class="form-control"
+              id="item-name"
+              placeholder="item name required"
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+              required
+            >
+          </div>
+          <div class="form-group">
+            <label for="item-description">Edit Description:</label>
+            <textarea
+            ng-model="item.description"
+              class="form-control"
+              id="item-description"
+              placeholder="item description required"
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+              required
+            ></textarea>
+          </div>
+          <button type="button" class="btn btn-primary" ng-disabled="editItemForm.$invalid" ng-click="toggleEdit($index)">Done</button>
+        </form>
       </div>
     </div>
   </main>
+</div>
+<div id="js-item-delete-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-danger">
+          <i class="fa fa-times"></i>
+          Confirm Delete
+        </h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to remove <b><span id="js-item-name"></span></b> from the packing list?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="js-item-delete" type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
 </div>

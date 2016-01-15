@@ -19,12 +19,11 @@ hr {
   cursor: pointer;
   margin-right: 3px;
 }
-.fa-pencil-square-o {
+.item-edit-icon {
   font-size: 17px;
   cursor: pointer;
-  pointer-events: none;
 }
-.fa-times {
+.item-delete-icon {
   font-size: 20px;
   cursor: pointer;
   margin-left: 3px;
@@ -46,6 +45,9 @@ hr {
   color: #919191;
   font-style: italic;
 }
+.item-edit-form {
+  padding: 10px;
+}
 .item-packed-true {
   color: #5cb85c;
 }
@@ -58,14 +60,14 @@ hr {
 .item-packed-false:hover {
   color: #91cf91;
 }
-.fa-times,
-.fa-pencil-square-o {
+.item-delete-icon,
+.item-edit-icon {
   color: #ddd;
 }
-.fa-pencil-square-o:hover {
+.item-edit-icon:hover {
   color: #2e6da4;
 }
-.fa-times:hover {
+.item-delete-icon:hover {
   color: #d9534f;
 }
 
