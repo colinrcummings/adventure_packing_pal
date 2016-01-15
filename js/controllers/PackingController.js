@@ -3,6 +3,7 @@ app.controller('PackingController', [
   '$scope',
   'items',
   function($location, $scope, items) {
+
     // load and set items array from factory
     items.success(function(data) {
       data.items.forEach(function(d){
@@ -13,6 +14,33 @@ app.controller('PackingController', [
       });
       $scope.items = data.items;
     });
+
+    // packed status filter and counts
+    $scope.packedFilter = false;
+    $scope.setPackedFilter = function(bolean) {
+      $scope.packedFilter = bolean;
+    };
+    $scope.packedFilterisActive = function(bolean) {
+      return $scope.packedFilter === bolean;
+    };
+    $scope.notPackedCount = function() {
+      if($scope.items != undefined) {
+        return $scope.items.filter(function(d) {
+          return d.packed === false;
+        }).length;
+      } else {
+        return 0;
+      }
+    };
+    $scope.packedCount = function() {
+      if($scope.items != undefined) {
+        return $scope.items.filter(function(d) {
+          return d.packed === true;
+        }).length;
+      } else {
+        return 0;
+      }
+    };
 
     // toggle packed atribute for item
     $scope.togglePacked = function(index) {
@@ -63,7 +91,7 @@ app.controller('PackingController', [
       $location.path('/packing_list');
     };
     $scope.goToAddItemView = function() {
-       $location.path('/add_item');
+      $location.path('/add_item');
     };
 
     /*

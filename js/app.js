@@ -2,7 +2,6 @@ var app = angular.module('packingApp', ['ngRoute']);
 
 app.config(function ($routeProvider) {
   $routeProvider
-
     .when('/packing_list', {
       controller: 'PackingController',
       templateUrl: 'views/packing_list.html'

@@ -10,8 +10,26 @@
     </div>
   </header>
   <main class="row text-center">
+    <div id="packed-filter-btns" class="col-md-12">
+      <div class="btn-group" role="group">
+        <button
+          type="button"
+          ng-click="setPackedFilter(false)"
+          ng-class="{ active:packedFilterisActive(false) }"
+          class="btn btn-default"
+          id="packed-filter-btn-false"
+        >Not Packed ({{ notPackedCount() }})</button>
+        <button
+          type="button"
+          ng-click="setPackedFilter(true)"
+          ng-class="{ active:packedFilterisActive(true) }"
+          class="btn btn-default"
+          id="packed-filter-btn-true"
+        >Packed ({{ packedCount() }})</button>
+      </div>
+    </div>
     <div ng-repeat="item in items track by $index" class="col-md-8 col-md-offset-2">
-      <div class="item-container">
+      <div ng-show="item.packed === packedFilter"class="item-container">
         <div ng-hide="item.edit">
           <h4 class="item-name">{{ item.name }}</h4>
           <p class="item-description">{{ item.description }}</p>
@@ -70,6 +88,12 @@
           <button type="button" class="btn btn-primary" ng-disabled="editItemForm.$invalid" ng-click="toggleEdit($index)">Done</button>
         </form>
       </div>
+    </div>
+    <div ng-show="packedFilter && packedCount() === 0" class="col-md-12">
+      <small class="text-muted"><i>No items packed...</i></small>
+    </div>
+    <div ng-show="!packedFilter && notPackedCount() === 0" class="col-md-12">
+      <small class="text-muted"><i>No items to pack...</i></small>
     </div>
   </main>
 </div>

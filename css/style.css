@@ -6,30 +6,24 @@ hr {
   border-top: 1px solid #c1c1c1;
 }
 
-/* icon styling */
-.flaticon-climbing,
-.flaticon-hiking,
-.flaticon-backpacking,
-.flaticon-mountaineering {
-  font-size: 18px;
-  cursor: pointer;
+/* packed filter button styling*/
+#packed-filter-btns {
+  margin-bottom: 15px;
 }
-.flaticon-pack {
-  font-size: 16px;
-  cursor: pointer;
-  margin-right: 3px;
+#packed-filter-btn-false.active {
+  background-color: #d9534f;
 }
-.item-edit-icon {
-  font-size: 17px;
-  cursor: pointer;
+#packed-filter-btn-true.active {
+  background-color: #5cb85c;
 }
-.item-delete-icon {
-  font-size: 20px;
-  cursor: pointer;
-  margin-left: 3px;
+#packed-filter-btn-false:hover {
+  background-color: #e7908e;
+}
+#packed-filter-btn-true:hover {
+  background-color: #91cf91;
 }
 
-/* item styling */
+/* item container styling */
 .item-container {
   margin-bottom: 5px;
   padding-bottom: 3px;
@@ -48,6 +42,13 @@ hr {
 .item-edit-form {
   padding: 10px;
 }
+
+/* item packed icon styling */
+.flaticon-pack {
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 4px;
+}
 .item-packed-true {
   color: #5cb85c;
 }
@@ -60,8 +61,25 @@ hr {
 .item-packed-false:hover {
   color: #91cf91;
 }
-.item-delete-icon,
+@media (max-width: 768px) {
+  .flaticon-pack {
+    font-size: 24px;
+    margin-right: 12px;
+  }
+}
+
+/* item edit and delete icon styling */
 .item-edit-icon {
+  font-size: 17px;
+  cursor: pointer;
+}
+.item-delete-icon {
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 4px;
+}
+.item-edit-icon,
+.item-delete-icon {
   color: #ddd;
 }
 .item-edit-icon:hover {
@@ -69,6 +87,25 @@ hr {
 }
 .item-delete-icon:hover {
   color: #d9534f;
+}
+@media (max-width: 768px) {
+  .item-edit-icon {
+    font-size: 25px;
+  }
+  .item-delete-icon {
+    font-size: 30px;
+    margin-left: 12px;
+  }
+}
+
+
+/* other icon styling */
+.flaticon-climbing,
+.flaticon-hiking,
+.flaticon-backpacking,
+.flaticon-mountaineering {
+  font-size: 18px;
+  cursor: pointer;
 }
 
 /* mobile input styling */
