@@ -1,3 +1,4 @@
+<!-- TODO create and edit -->
 <form
   name="itemForm"
   ng-controller="PackingController"
@@ -23,12 +24,6 @@
       required
     ></textarea>
   </div>
-  <div class="form-group">
-    <input
-      type="submit"
-      ng-disabled="itemForm.$invalid"
-      class="btn btn-default"
-      value="Submit"
-    />
-  </div>
+  <button type="submit" class="btn btn-success" ng-disabled="itemForm.$invalid">Submit</button>
+  <button type="button" class="btn btn-danger" ng-click="changeView('/list')">Cancel</button>
 </form>

@@ -6,7 +6,7 @@ hr {
   border-top: 1px solid #c1c1c1;
 }
 
-/* flaticon styling */
+/* icon styling */
 .flaticon-climbing,
 .flaticon-hiking,
 .flaticon-backpacking,
@@ -17,6 +17,12 @@ hr {
 .flaticon-pack {
   font-size: 16px;
   cursor: pointer;
+  margin-right: 2px;
+}
+.fa-times {
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 2px;
 }
 
 /* item styling */
@@ -46,4 +52,10 @@ hr {
 }
 .item-packed-false:hover {
   color: #91cf91;
+}
+.fa-times {
+  color: #ddd;
+}
+.fa-times:hover {
+  color: #d9534f;
 }

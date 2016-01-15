@@ -1,16 +1,18 @@
 var app = angular.module('packingApp', ['ngRoute']);
 
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider, $locationProvider) {
   $routeProvider
-    .when('/list', {
+
+    .when('/packing_list', {
       controller: 'PackingController',
-      templateUrl: 'views/list.html'
+      templateUrl: 'views/packing_list.html'
     })
-    .when('/item', {
+    .when('/add_item', {
       controller: 'PackingController',
-      templateUrl: 'views/item.html'
+      templateUrl: 'views/add_item.html'
     })
     .otherwise({
-      redirectTo: '/list'
+      redirectTo: '/packing_list'
     });
+  $locationProvider.html5Mode(true);
 });

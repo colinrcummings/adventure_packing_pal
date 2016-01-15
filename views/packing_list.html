@@ -1,0 +1,31 @@
+<div class="container">
+  <header class="row text-center">
+    <div class="col-md-12">
+      <h1>Packing List</h1>
+      <button ng-click="changeView('/add_item')" class="btn btn-default">Add Item</button>
+      <!--
+      <list-button-group></list-button-group>
+      -->
+      <hr>
+    </div>
+  </header>
+  <main class="row text-center">
+    <div ng-repeat="item in items" class="col-md-8 col-md-offset-2">
+      <div class="item-container">
+        <h4 class="item-name">{{ item.name }}</h4>
+        <p class="item-description">{{ item.description }}</p>
+        <i
+          ng-click="togglePacked($index)"
+          title="{{{true: 'Unpack item', false: 'Pack item'}[item.packed]}}"
+          ng-class="item.packed ? 'item-packed-true' : 'item-packed-false'"
+          class="flaticon-pack"
+        ></i>
+        <i
+          ng-click="deleteItem($index)"
+          title="Delete item"
+          class="fa fa-times"
+        ></i>
+      </div>
+    </div>
+  </main>
+</div>

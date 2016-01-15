@@ -3,31 +3,46 @@ app.controller('PackingController', [
   '$scope',
   'items',
   function($location, $scope, items) {
-    // load and set items from factory
+    // load, configure and set initial items array from factory
     items.success(function(data) {
       data.items.forEach(function(d,i){
-        // console.log(d,i);
+        d.name = d.name;
+        d.description = d.description;
+        d.id = i;
+        d.packed = d.packed || false;
       });
       $scope.items = data.items;
     });
 
-    // items
+    // items array
     $scope.items = [];
 
-    // add item to items
+    // toggle packed atribute for item
+    $scope.togglePacked = function(index) {
+      var item = $scope.items[index];
+      if(item.packed === true) {
+        item.packed = false;
+      } else {
+        item.packed = true;
+      }
+    };
+
+    // add new item to items array
     $scope.addNewItem = function() {
       $scope.items.push({
         'name': $scope.newItemName,
-        'description': $scope.newItemDescription
+        'description': $scope.newItemDescription,
+        'id': $scope.items.length,
+        'packed': false
       });
       $scope.newItemName = '';
       $scope.newItemDescription = '';
       $scope.changeView('/list');
     };
 
-    // remove item from items
-    $scope.removeItem = function() {
-      // TODO
+    // remove item from items array
+    $scope.deleteItem = function(index) {
+      $scope.items.splice(index,1);
     };
 
     // view handler
@@ -36,7 +51,7 @@ app.controller('PackingController', [
     }
 
     /*
-    // from the former list controller (TODO: redo in PackageController)
+    // TODO
     this.list = 1;
 
     this.setList = function(list) {
