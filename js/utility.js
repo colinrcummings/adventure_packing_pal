@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  hoverTouchUnstick()
+  hoverTouchUnstick();
 });
 
 // http://mvartan.com/2014/12/20/fixing-sticky-hover-on-mobile-devices/
