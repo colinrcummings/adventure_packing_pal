@@ -14,5 +14,5 @@ app.config(function ($routeProvider, $locationProvider) {
     .otherwise({
       redirectTo: '/packing_list'
     });
-  $locationProvider.html5Mode(true);
+  // $locationProvider.html5Mode(true);
 });
