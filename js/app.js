@@ -1,6 +1,6 @@
 var app = angular.module('packingApp', ['ngRoute']);
 
-app.config(function ($routeProvider, $locationProvider) {
+app.config(function ($routeProvider) {
   $routeProvider
 
     .when('/packing_list', {
@@ -14,5 +14,4 @@ app.config(function ($routeProvider, $locationProvider) {
     .otherwise({
       redirectTo: '/packing_list'
     });
-  // $locationProvider.html5Mode(true);
 });
